@@ -1,0 +1,151 @@
+1. Create a basic calculator using HTML, CSS, and JavaScript with the functionality of add,
+subtract, multiply and divide 
+
+
+
+HTML 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly class="display">
+        <div class="buttons">
+            <button class="button-number" onclick="appendToDisplay('7')">7</button>
+            <button class="button-number" onclick="appendToDisplay('8')">8</button>
+            <button class="button-number" onclick="appendToDisplay('9')">9</button>
+            <button class="button-operator" onclick="appendToDisplay('/')">/</button>
+            <button class="button-number" onclick="appendToDisplay('4')">4</button>
+            <button class="button-number" onclick="appendToDisplay('5')">5</button>
+            <button class="button-number" onclick="appendToDisplay('6')">6</button>
+            <button class="button-operator" onclick="appendToDisplay('*')">*</button>
+            <button class="button-number" onclick="appendToDisplay('1')">1</button>
+            <button class="button-number" onclick="appendToDisplay('2')">2</button>
+            <button class="button-number" onclick="appendToDisplay('3')">3</button>
+            <button class="button-operator" onclick="appendToDisplay('-')">-</button>
+            <button class="button-number" onclick="appendToDisplay('0')">0</button>
+            <button class="button-number" onclick="appendToDisplay('.')">.</button>
+            <button class="button-result" onclick="calculateResult()">=</button>
+            <button class="button-operator" onclick="appendToDisplay('+')">+</button>
+            <button class="button-clear" onclick="clearDisplay()">C</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+CSS
+
+
+
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.calculator {
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+    margin: auto;
+}
+
+.display {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    text-align: right;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+.button-number {
+    background-color: #4caf50;
+}
+
+.button-operator {
+    background-color: #ff5722;
+}
+
+.button-result {
+    background-color: #2196f3;
+}
+
+.button-clear {
+    background-color: #f44336;
+}
+
+
+
+
+
+
+
+JS 
+
+
+
+
+
+
+function appendToDisplay(value) {
+    document.getElementById('display').value += value;
+}
+
+function calculateResult() {
+    let displayValue = document.getElementById('display').value;
+    let result = eval(displayValue);
+    document.getElementById('display').value = result;
+}
+
+function clearDisplay() {
+    document.getElementById('display').value = '';
+}
