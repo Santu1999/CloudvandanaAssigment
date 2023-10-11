@@ -1,0 +1,20 @@
+1. Take a sentence as an input and reverse every word in that sentence.
+
+
+const sentence = "This is a sunny day";
+const reversedSentence = sentence
+  .split(" ")
+  .map(word => word.split("").reverse().join(""))
+  .join(" ");
+
+console.log(reversedSentence); 
+
+
+
+
+
+2. Perform sorting of an array in descending order.
+
+const arr = [3, 1, 4, 1, 5, 9, 2, 6];
+arr.sort((a, b) => b - a);
+console.log(arr);
